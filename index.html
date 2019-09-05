@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Unsubsquirrel</title>
+    <style>
+      pre {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <pre id="squirrel"></pre>
+  <script type="text/javascript">
+
+  /* Squirrel Courtesy Olaf Bohlen */
+  /* Based on https://github.com/c3d/unsubsquirrel by @c3d */
+  
+  const messages = [
+    "Netiquette is apparently a hard nut to crack",
+    "Unsubscribe you? You can't be serious!",
+    "Nack",
+    "We are sorry to not see you leave",
+    "Please be considerate and do post this to another list",
+    "Have you considered cross-posting this to world-list@gmail.com?",
+    "Access denied: Problem between keyboard and chair (E_PBKAC)",
+    "What about a cup of tea?",
+    "You are probably not remote enough"
+  ];
+
+  const sepLine = (howmany, begin, c, end) => {
+    let str = "";
+    str += begin;
+    while (howmany--) {
+      str += c;
+    }
+    str += end;
+    str += "\n";
+    return str;
+  }
+
+  const draw = (message) => {
+    let bubble = sepLine(message.length +2, "//", "-", "\\\\");
+    bubble += `|| ${message} ||\n`;
+    bubble += sepLine(message.length + 2, "\\\\", "-", "//");
+    let squirrel = `
+      \\
+        \\              .-'\` \`}
+        \\    _./)   /       }
+            .'o   \\ |       }
+            '.___.'\`.\\    {\`
+            /\`\\_/  , \`.    }
+            \\=' .-'   _\`\\  {
+              \`'\`;/      \`,  }
+                _\\       ;  }
+      jgs      /__\`;-...'--'
+    `;    
+
+    return bubble + squirrel;
+  }
+
+  document.querySelector("#squirrel").innerText = draw(messages[Math.floor(Math.random() * messages.length)]);
+  </script>
+</body>
+</html>
