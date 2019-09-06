@@ -38,17 +38,16 @@
       str += c;
     }
     str += end;
-    str += "\n";
     return str;
   }
 
   const draw = (message) => {
     let bubble = sepLine(message.length +2, "//", "-", "\\\\");
-    bubble += `|| ${message} ||\n`;
+    bubble += `\n|| ${message} ||\n`;
     bubble += sepLine(message.length + 2, "\\\\", "-", "//");
     let squirrel = `
-      \\
-        \\              .-'\` \`}
+      \\ /
+       \\|              .-'\` \`}
         \\    _./)   /       }
             .'o   \\ |       }
             '.___.'\`.\\    {\`
